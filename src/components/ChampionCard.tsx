@@ -12,7 +12,7 @@ const ChampionCard = ({champion}:ChampionData) => {
         width={120}
         height={120}
     />
-    <p className="mb-4">챔피언 명: {champion.name}</p>
+    <p className="mb-4">{champion.name}</p>
     <p className="mb-4">{champion.title}</p>
   </div>
 </div>
