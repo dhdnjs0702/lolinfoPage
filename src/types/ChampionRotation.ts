@@ -1,3 +1,5 @@
-export type ChampionRoatationData = {
-    
-}
+export interface ChampionRoatationData {
+    freeChampionIds: number[];  
+    freeChampionIdsForNewPlayers: number[];
+    maxNewPlayerLevel: number;
+  }
