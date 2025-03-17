@@ -1,4 +1,5 @@
 import ItemCard from '@/components/ItemCard';
+import { ItemData } from '@/types/Items';
 import { fetchItemList } from '@/utils/serverApi';
 
 import React from 'react'
