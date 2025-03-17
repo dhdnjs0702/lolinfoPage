@@ -1,4 +1,4 @@
-import { fetchChampionList } from "@/utils/serverApi";
+import { fetchChampionListSSR } from "@/utils/serverApi";
 
 
 
@@ -20,10 +20,15 @@ export async function GET() {
         const res = await fetch(url, {
             headers: {
                 "X-Riot-Token": RIOT_API,
-            }
+            },
+            cache: 'no-store' //ssr
         });
+
+        console.log("라이엇 API 응답 상태:", res.status);
         
         if (!res.ok) {
+            const errorText = await res.text();
+            console.error("라이엇 API 오류 응답:", errorText);
             return new Response(JSON.stringify({error: `라이엇 API 오류: ${res.status}`}), {
                 status: res.status,
                 headers: {"Content-Type": "application/json"}
@@ -34,10 +39,13 @@ export async function GET() {
         
         
         const freeChampionIds = data.freeChampionIds || [];
-        // console.log("무료 챔피언 ID 배열:", freeChampionIds);
         
         
-        const champions = await fetchChampionList();
+        const champions = await fetchChampionListSSR();
+
+        console.log("Champions type:", typeof champions);
+console.log("Is array:", Array.isArray(champions));
+console.log("Champions data:", JSON.stringify(champions).substring(0, 200));
         
         if (!champions || champions.length === 0) {
             return new Response(JSON.stringify({error: "챔피언 목록을 가져오지 못했습니다"}), {
