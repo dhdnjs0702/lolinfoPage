@@ -2,7 +2,11 @@ import { ChampionData } from "@/types/Champions";
 import { ItemData } from "@/types/Items";
 
 export const fetchChampionList = async() => {
-    const res = await fetch("https://ddragon.leagueoflegends.com/cdn/15.5.1/data/ko_KR/champion.json")
+    const res = await fetch("https://ddragon.leagueoflegends.com/cdn/15.5.1/data/ko_KR/champion.json",{
+        next:{
+            revalidate: 86400,
+        }
+    })
 
     const {data}:{data:ChampionData} = await res.json();
 
@@ -12,7 +16,9 @@ export const fetchChampionList = async() => {
 }
 
 export const fetchItemList = async() => {
-    const res = await fetch("https://ddragon.leagueoflegends.com/cdn/15.5.1/data/ko_KR/item.json")
+    const res = await fetch("https://ddragon.leagueoflegends.com/cdn/15.5.1/data/ko_KR/item.json",{
+        cache: "force-cache"
+    })
 
     const {data}:{data:ItemData} = await res.json();
 
