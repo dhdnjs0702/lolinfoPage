@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/Header";
 import Provider from "./provider";
+import Footer from "@/components/Footer";
 
 
 
@@ -33,9 +34,11 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
       <Header />
+      <br/>
         <Provider>
           {children}
         </Provider>
+        <Footer />
       </body>
     </html>
   );
