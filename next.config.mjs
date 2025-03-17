@@ -8,6 +8,12 @@ const nextConfig = {
         pathname: "**",
       },
     ],
+    domains: [
+      "search.pstatic.net",
+      "upload3.inven.co.kr",
+      "appdata.hungryapp.co.kr",
+      "icons.veryicon.com",
+    ],
   },
 };
 
