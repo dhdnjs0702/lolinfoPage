@@ -5,7 +5,6 @@ const ItemComponentPage = async() => {
     
 
   return (<>
-    <div>ItemComponentPage</div>
     
      <ItemPage />
     
