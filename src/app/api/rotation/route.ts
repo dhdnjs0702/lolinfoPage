@@ -24,7 +24,7 @@ export async function GET() {
             cache: 'no-store' //ssr
         });
 
-        console.log("라이엇 API 응답 상태:", res.status);
+        
         
         if (!res.ok) {
             const errorText = await res.text();
@@ -43,9 +43,7 @@ export async function GET() {
         
         const champions = await fetchChampionListSSR();
 
-        console.log("Champions type:", typeof champions);
-console.log("Is array:", Array.isArray(champions));
-console.log("Champions data:", JSON.stringify(champions).substring(0, 200));
+
         
         if (!champions || champions.length === 0) {
             return new Response(JSON.stringify({error: "챔피언 목록을 가져오지 못했습니다"}), {

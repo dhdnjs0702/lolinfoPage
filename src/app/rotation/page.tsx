@@ -29,8 +29,6 @@ const ChampionRotationPage = () => {
   if(isLoading){
     return <div>Loading,,,</div>
   }
-
-  console.log("a->",champions);
   
   return (
     <>
