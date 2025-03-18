@@ -12,7 +12,7 @@ const ChampionRotationPage = () => {
   useEffect(()=>{
     async function fetchRoation(){
       try{
-        const res = await fetch(process.env.PUBLISH_LINK || 'http://localhost:3000/api/rotation')//'http://localhost:3000/api/rotation' -> 테스트용
+        const res = await fetch('https://lolinfo-page.vercel.app/api/rotation')
         const data = await res.json();
         setChampions(data);
       }catch(error){
